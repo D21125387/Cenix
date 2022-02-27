@@ -1,0 +1,155 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
+@import url(//db.onlinewebfonts.com/c/c385150224fb181d73545d7513a68528?family=Maison+Mono);
+@font-face {
+    font-family: "sohne-fett";
+    src: url("../assets/fonts/Sohne-Fett.otf") format("opentype");
+}
+
+html {
+    scroll-behavior: smooth;
+}
+:root {
+    --animate-delay: 0.25s !important;
+    --color-indigo: rgb(165 180 252);
+    --color-text-white: rgb(203 213 225);
+}
+
+#hero {
+    background: url("../assets/img/jz12.jpg") fixed no-repeat center center;
+    background-size: cover;
+}
+
+.hero {
+    background: url("../assets/img/dark03.png") no-repeat;
+    background-size: contain;
+}
+
+.title {
+    background: linear-gradient(to top, #a770ef, #cf8bf3, #fdb99b);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.maison-mono {
+    font-family: "Maison Mono", sans-serif;
+}
+
+.sohne-fett {
+    font-family: "sohne-fett", sans-serif;
+}
+
+.text-white {
+    color: var(--color-text-white) !important;
+}
+
+::-webkit-scrollbar {
+    width: 0px;
+}
+
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: none;
+}
+
+::-webkit-scrollbar-thumb {
+    background: white;
+    -webkit-box-shadow: none;
+}
+
+::-webkit-scrollbar-thumb:window-inactive {
+    background: none;
+}
+
+*, *::before, *::after {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    border: 0 solid #e5e7eb;
+}
+
+.link {
+    color: var(--color-indigo);
+    text-decoration: none;
+    border-bottom: 3px solid transparent;
+}
+
+.link:hover {
+    color: var(--color-indigo);
+    transition: all ease-in 0.3s;
+    border-bottom: 3px solid var(--color-indigo)
+}
+
+.navbar-light, .navbar-dark {
+    background: none;
+}
+
+.bg-light, .bg-dark {
+    background: none !important;
+}
+
+.container-fluid {
+    padding: 0;
+}
+
+.text-emerald-300 {
+    color: rgb(110 231 183);
+}
+
+.text-indigo-300 {
+    color: var(--color-indigo);
+}
+
+.text-violet-300 {
+    color: rgb(196 181 253);
+}
+
+.text-orange-300 {
+    color: rgb(253 186 116);
+}
+
+.text-red-300 {
+    color: rgb(252 165 165);
+}
+
+.text-yellow-300 {
+    color: rgb(253 224 71);
+}
+
+/* Social Media Links */
+
+.social {
+
+}
+
+.social a, .me a {
+    text-decoration: none;
+    color: var(--color-text-white);
+    transition: all ease 0.3s;
+}
+
+.social li {
+    transition: all ease 0.3s;
+}
+
+.social a:hover, .me a:hover {
+    color: var(--color-indigo)
+}
+
+.social li:hover {
+    transform: rotate(45deg);
+}
+
+@media (max-width: 575.98px) {
+    .social, .me {
+        display: none;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .social {
+        left: 5%;
+    }
+
+    .me {
+        left: 95%;
+    }
+}
