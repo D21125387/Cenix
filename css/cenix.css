@@ -15,13 +15,24 @@
     src: url("../assets/fonts/Sohne-Fett.otf") format("opentype");
 }
 
+@font-face {
+    font-family: "sohne-light";
+    src: url("../assets/fonts/Sohne-Leicht.otf") format("opentype");
+}
+
+.sohne-light {
+    font-family: "sohne-light", serif;
+}
+
 html {
     scroll-behavior: smooth;
 }
 :root {
     --animate-delay: 0.25s !important;
     --color-indigo: rgb(165 180 252);
+    --color-green: rgb(110 231 183);
     --color-text-white: rgb(203 213 225);
+    --color-orange: rgb(253 186 116);
 }
 
 #hero {
@@ -35,9 +46,19 @@ html {
 }
 
 .title {
-    background: linear-gradient(to top, #a770ef, #cf8bf3, #fdb99b);
+    background: linear-gradient(to top, #00467f, #a5cc82);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+}
+
+.btn-outline-green {
+    color: var(--color-indigo);
+    border-color: var(--color-indigo);
+}
+
+.btn-outline-green:hover {
+    color: white;
+    background: var(--color-indigo);
 }
 
 .maison-mono {
@@ -100,6 +121,7 @@ html {
     padding: 0;
 }
 
+/* Text Colors */
 .text-emerald-300 {
     color: rgb(110 231 183);
 }
@@ -148,18 +170,47 @@ html {
     transform: rotate(45deg);
 }
 
+/* About me */
+#about {
+    background: url("../assets/img/jz4.jpg") fixed no-repeat center center;
+    background-size: cover;
+}
+
+#experience {
+    background: url("../assets/img/jz7.jpg") fixed no-repeat top center;
+    background-size: cover;
+}
+
+.nav-pills .nav-link {
+    color: var(--color-text-white);
+    border-left: 5px solid rgba(253,186,116,0.25);
+    border-radius: 0;
+}
+
+.nav-pills .nav-link.active {
+    color: var(--color-orange);
+    background: none !important;
+    border-left: 5px solid var(--color-orange);
+}
+
+.image {
+    object-fit: fill;
+}
+
+/* Media Queries Phone */
 @media (max-width: 575.98px) {
     .social, .me {
         display: none;
     }
 }
 
+/* Media Queries Tablet */
 @media (max-width: 767.98px) {
     .social {
-        left: 5%;
+        left: 2%;
     }
 
     .me {
-        left: 95%;
+        left: 98%;
     }
 }
