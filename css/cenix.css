@@ -197,10 +197,18 @@ html {
     object-fit: fill;
 }
 
+.experience {
+    transform: translateY(125%);
+}
+
 /* Media Queries Phone */
 @media (max-width: 575.98px) {
     .social, .me {
         display: none;
+    }
+
+    .experience {
+        transform: translateY(50%);
     }
 }
 
