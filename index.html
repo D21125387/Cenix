@@ -73,6 +73,9 @@
                 <div class="col-md-6 hero col-sm-auto">
                     <div id="commit">
                         <h1>Recent commits</h1>
+                        <ul>
+                            <span id="commitJS"></span>
+                        </ul>
                         <script defer>
                             async function getEvents(username) {
                             const events = []
@@ -94,7 +97,7 @@
                             for(let i = 0; i < 5; i++){
                                 if(events[i]['type'] === 'PushEvent' || events[i]['type'] === 'CreateEvent'){
                                     console.log(events[i]);
-                                    document.getElementById('commit').innerHTML += "<p>"+events[i]['repo']['name']+"</p>";
+                                    document.getElementById('commitJS').innerHTML += "<li>"+events[i]['repo']['name']+"</li>";
                                 }
                             }
                             console.log('Overall Events', events.length)
