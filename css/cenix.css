@@ -35,11 +35,6 @@ html {
     --color-orange: rgb(253 186 116);
 }
 
-#hero {
-    background: url("../assets/img/jz12.jpg") fixed no-repeat center center;
-    background-size: cover;
-}
-
 .title {
     background: linear-gradient(to top, #00467f, #a5cc82);
     -webkit-background-clip: text;
@@ -165,6 +160,11 @@ html {
     transform: rotate(45deg);
 }
 
+#hero {
+    background: url("../assets/img/jz12.jpg") fixed no-repeat center center;
+    background-size: cover;
+}
+
 /* About me */
 #about {
     background: url("../assets/img/jz4.jpg") fixed no-repeat center center;
@@ -178,6 +178,11 @@ html {
 
 #portfolio {
     background: url("../assets/img/jz10.jpg") fixed no-repeat top center;
+    background-size: cover;
+}
+
+#contact {
+    background: url("../assets/img/jz8.jpg") fixed no-repeat top center;
     background-size: cover;
 }
 
