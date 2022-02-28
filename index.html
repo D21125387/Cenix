@@ -12,9 +12,9 @@
     <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
     <title>Cenix - Home</title>
 </head>
-<body>
+<body data-bs-spy="scroll" data-bs-target="#navbar" data-bs-offset="0" class="scrollspy-example" tabindex="0">
 <div class="container-fluid text-white">
-    <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark maison-mono pt-5 pb-2">
+    <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark maison-mono pt-5 pb-2" id="navbar">
         <div class="container">
             <a class="navbar-brand sohne-fett animate__animated animate__fadeInDown animate__delay-1s" href="#"><span><h1>Cenix</h1></span></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -23,16 +23,16 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link me-1 animate__animated animate__fadeInDown animate__delay-1s" aria-current="page" href="#"><span class="text-red-300">01.</span>About</a>
+                        <a class="nav-link me-1 animate__animated animate__fadeInDown animate__delay-1s" aria-current="page" href="#about"><span class="text-red-300">01.</span>About</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link me-1 animate__animated animate__fadeInDown animate__delay-2s" href="#"><span class="text-orange-300">02.</span>Experience</a>
+                        <a class="nav-link me-1 animate__animated animate__fadeInDown animate__delay-2s" href="#experience"><span class="text-orange-300">02.</span>Experience</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link me-1 animate__animated animate__fadeInDown animate__delay-3s" href="#"><span class="text-yellow-300">03.</span>Portfolio</a>
+                        <a class="nav-link me-1 animate__animated animate__fadeInDown animate__delay-3s" href="#portfolio"><span class="text-yellow-300">03.</span>Portfolio</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link me-1 animate__animated animate__fadeInDown animate__delay-4s" href="#"><span class="text-emerald-300">04.</span>Contact</a>
+                        <a class="nav-link me-1 animate__animated animate__fadeInDown animate__delay-4s" href="#contact"><span class="text-emerald-300">04.</span>Contact</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link me-1 btn btn-outline-primary animate__fadeInDown animate__delay-4s" href="#"><span class="text-indigo-300"></span>Resume</a>
@@ -42,7 +42,7 @@
         </div>
     </nav>
 
-    <div class="social maison-mono position-fixed bottom-0 animate__animated animate__fadeInUp animate__delay-7s" style="left: 5%;">
+    <div class="social maison-mono position-fixed bottom-0 animate__animated animate__fadeInUp animate__delay-4s" style="left: 5%;">
         <ul class="list-unstyled" style="font-size: 40px;">
             <li><a href="#"><i class="lab la-github"></i></a></li>
             <li><a href="#"><i class="lab la-linkedin"></i></a></li>
@@ -51,7 +51,7 @@
         </ul>
     </div>
 
-    <div class="me maison-mono position-fixed bottom-0 animate__animated animate__fadeInUp animate__delay-7s" style="left: 95%;">
+    <div class="me maison-mono position-fixed bottom-0 animate__animated animate__fadeInUp animate__delay-4s" style="left: 95%;">
         <ul class="list-unstyled" style="webkit-writing-mode: vertical-rl; writing-mode: vertical-rl; margin-bottom: 40px">
             <li><a href="mailto:chakkarin.lks@gmail.com">chakkarin.lks@gmail.com</a></li>
         </ul>
@@ -71,6 +71,38 @@
                     <a href="#portfolio" class="btn btn-outline-green p-3">Check out my Portfolio</a>
                 </div>
                 <div class="col-md-6 hero col-sm-auto">
+                    <div id="commit">
+                        <script defer>
+                            async function getEvents(username) {
+                            const events = []
+                            let page = 1
+
+                            do {
+                                const url = `https://api.github.com/users/${username}/events?page=${page}`
+                                var body = await fetch(url).then(res => res.json())
+                                page++
+                                events.push(...body)
+                            } while(!body.length)
+
+                            return events
+                        }
+
+                        (async () => {
+                            const events = await getEvents('D21125387')
+
+                            for(let i = 0; i < events.length; i++){
+                                if(events[i]['type'] === 'PushEvent'){
+                                    console.log(events[i]);
+                                    document.getElementById('commit').innerHTML += "<p>"+events[i]['repo']['name']+"</p>";
+                                }
+                            }
+                            console.log('Overall Events', events.length)
+                            console.log('PullRequests', events.filter(event => event.type === 'PullRequestEvent').length)
+                            console.log('Forks', events.filter(event => event.type === 'ForkEvent').length)
+                            console.log('Issues', events.filter(event => event.type === 'IssuesEvent').length)
+                            console.log('Reviews', events.filter(event => event.type === 'PullRequestReviewEvent').length)
+                        })()</script>
+                    </div>
                 </div>
             </div>
         </div>
@@ -120,7 +152,10 @@
         <div class="container min-vh-100">
             <div class="text-sm-center text-md-start maison-mono">
                 <div class="experience d-flex flex-column-reverse flex-md-row justify-content-center align-items-center">
-                    <div class="d-block col-sm-12 col-md-5 sohne-light">
+                    <div class="col-md-1 col-sm-auto">
+
+                    </div>
+                    <div class="d-block col-sm-12 col-md-6 sohne-light">
                         <div class="d-flex align-items-start ms-auo me-auto">
                             <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
                                 <button class="nav-link active" id="v-pills-1-tab" data-bs-toggle="pill" data-bs-target="#v-pills-1" type="button" role="tab" aria-controls="v-pills-1" aria-selected="true">Irish Mortgage Broker</button>
@@ -128,7 +163,7 @@
                                 <button class="nav-link" id="v-pills-3-tab" data-bs-toggle="pill" data-bs-target="#v-pills-3" type="button" role="tab" aria-controls="v-pills-3" aria-selected="false">Experience #3</button>
                                 <button class="nav-link" id="v-pills-4-tab" data-bs-toggle="pill" data-bs-target="#v-pills-4" type="button" role="tab" aria-controls="v-pills-4" aria-selected="false">Experience #4</button>
                             </div>
-                            <div class="tab-content col-4" id="v-pills-tabContent">
+                            <div class="tab-content" id="v-pills-tabContent">
                                 <div class="tab-pane fade show active p-2" id="v-pills-1" role="tabpanel" aria-labelledby="v-pills-1-tab">
                                     <p class="fw-bold">Software Tester <span class="text-orange-300">@</span> <a class="link" href="#">IMB</a></p>
                                     <p>Feb 2019 - Mar 2019</p>
@@ -138,8 +173,8 @@
                                         <li>User Interface Design</li>
                                     </ul>
                                 </div>
-                                <div class="tab-pane col-8 fade p-2" id="v-pills-2" role="tabpanel" aria-labelledby="v-pills-2-tab">
-                                    <p class="fw-bold">Freelance - Art & Graphic Design <span class="text-orange-300">@</span> <a class="link" href="#">MC-Market</a></p>
+                                <div class="tab-pane fade p-2" id="v-pills-2" role="tabpanel" aria-labelledby="v-pills-2-tab">
+                                    <p class="fw-bold">Freelance <span class="text-orange-300">@</span> <a class="link" href="#">MC-Market</a></p>
                                     <p>Jan 2017 - Apr 2017</p>
                                     <ul>
                                         <li>Digital Arts</li>
@@ -168,11 +203,26 @@
                             </div>
                         </div>
                     </div>
-                    <div class="d-block col-sm-12 col-md-5">
-                        <div class="text-center">
+                    <div class="d-block col-sm-12 col-md-2">
+                        <div class="">
                             <h1 class="text-orange-300" style="opacity: 0.25;">02.</h1><h1 class="text-orange-300">Experience</h1>
                             <p>Here are my past work experiences</p>
                         </div>
+                    </div>
+                    <div class="col-md-1 col-sm-auto">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="portfolio">
+        <div class="container min-vh-100">
+            <div class="text-sm-center text-md-start maison-mono">
+                <div class="d-flex flex-column flex-md-row align-items-center">
+                    <div class="d-block col-sm-12 col-md-12 text-center">
+                        <h1 class="text-yellow-300" style="opacity: 0.25;">03.</h1><h1 class="text-yellow-300">Portfolio</h1>
                     </div>
                 </div>
             </div>
@@ -180,13 +230,11 @@
     </section>
 
 <!--    </section>-->
-<!--    <section id="portfolio" class="vh-100">-->
-
-<!--    </section>-->
 <!--    <section id="contact" class="vh-100">-->
 
 <!--    </section>-->
 </div>
+<script src="js/navbarChangeHeightOnScroll.js"></script>
 <script src="https://unpkg.com/typewriter-effect@latest/dist/core.js"></script>
 <script src="js/typewriter.js"></script>
 <script src="js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
