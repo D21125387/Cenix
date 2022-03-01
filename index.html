@@ -73,8 +73,7 @@
                 <div class="col-md-6 hero col-sm-auto">
                     <div id="commit">
                         <h1>Recent commits</h1>
-                        <ul>
-                            <span id="commitJS"></span>
+                        <ul id="commitJS">
                         </ul>
                         <script defer>
                             async function getEvents(username) {
@@ -91,21 +90,52 @@
                             return events
                         }
 
+                        async function getCommits(link) {
+                                const commits = []
+                            do {
+                                const url = link
+                                var body1 = await fetch(url).then(res => res.json())
+                                commits.push(body1)
+                            } while (!body1.length)
+                            return commits
+                        }
+
+                        let resEvents = [];
+                        let resCommits = [];
+
                         (async () => {
-                            const events = await getEvents('D21125387')
-                            console.log(events);
+                            var body = await getEvents('D21125387')
+                            resEvents.push(...body);
+                            console.log(resEvents);
+                            console.log(resEvents[0]['repo']['url']+"/commits")
                             for(let i = 0; i < 5; i++){
-                                if(events[i]['type'] === 'PushEvent' || events[i]['type'] === 'CreateEvent'){
-                                    console.log(events[i]);
-                                    document.getElementById('commitJS').innerHTML += "<li>"+events[i]['repo']['name']+"</li>";
-                                }
+
+                                // if(events[i]['type'] === 'PushEvent' || events[i]['type'] === 'CreateEvent'){
+                                //     console.log(events[i]);
+                                //     document.getElementById('commitJS').innerHTML +=
+                                //         "<li><a class='link' target='_blank' href='"+events[i]['repo']['url'].replace("https://api.github.com/repos", "https://github.com")+"'>"+events[i]['repo']['name']+"</a></li>";
+                                // }
                             }
-                            console.log('Overall Events', events.length)
-                            console.log('PullRequests', events.filter(event => event.type === 'PullRequestEvent').length)
-                            console.log('Forks', events.filter(event => event.type === 'ForkEvent').length)
-                            console.log('Issues', events.filter(event => event.type === 'IssuesEvent').length)
-                            console.log('Reviews', events.filter(event => event.type === 'PullRequestReviewEvent').length)
-                        })()</script>
+
+                            // console.log('Overall Events', events.length)
+                            // console.log('PullRequests', events.filter(event => event.type === 'PullRequestEvent').length)
+                            // console.log('Forks', events.filter(event => event.type === 'ForkEvent').length)
+                            // console.log('Issues', events.filter(event => event.type === 'IssuesEvent').length)
+                            // console.log('Reviews', events.filter(event => event.type === 'PullRequestReviewEvent').length)
+                        })();
+
+                        (async () => {
+                            console.log(resEvents)
+                            resCommits = await getCommits(resEvents[0]['repo']['url'].toString())
+                            console.log(resCommits);
+
+                            // console.log('Overall Events', events.length)
+                            // console.log('PullRequests', events.filter(event => event.type === 'PullRequestEvent').length)
+                            // console.log('Forks', events.filter(event => event.type === 'ForkEvent').length)
+                            // console.log('Issues', events.filter(event => event.type === 'IssuesEvent').length)
+                            // console.log('Reviews', events.filter(event => event.type === 'PullRequestReviewEvent').length)
+                        })();
+                        </script>
                     </div>
                 </div>
             </div>
