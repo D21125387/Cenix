@@ -1,9 +1,13 @@
-window.onscroll = function() {scrollFunction()};
+var navbar = document.querySelector('nav')
 
-function scrollFunction() {
-    if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
-        document.getElementById("navbar").style.paddingTop = "1em !important";
+window.onscroll = function() {
+
+    // pageYOffset or scrollY
+    if (window.scrollY > 1) {
+        navbar.classList.add('scrolled')
+        navbar.classList.remove('bg-dark')
     } else {
-        document.getElementById("navbar").style.paddingTop = "4em !important";
+        navbar.classList.add('bg-dark')
+        navbar.classList.remove('scrolled')
     }
 }

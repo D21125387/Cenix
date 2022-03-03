@@ -16,7 +16,7 @@
 <div class="container-fluid text-white">
     <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark maison-mono pt-5 pb-2" id="navbar">
         <div class="container">
-            <a class="navbar-brand sohne-fett animate__animated animate__fadeInDown animate__delay-1s" href="#"><span><h1>Cenix</h1></span></a>
+            <a class="navbar-brand sohne-fett animate__animated animate__fadeInDown animate__delay-0s" href="#"><span><h1>Cenix</h1></span></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -35,14 +35,14 @@
                         <a class="nav-link me-1 animate__animated animate__fadeInDown animate__delay-4s" href="#contact"><span class="text-emerald-300">04.</span>Contact</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link me-1 btn btn-outline-green animate__fadeInDown animate__delay-4s" href="#"><span class="text-indigo-300"></span>Resume</a>
+                        <a class="nav-link me-1 d-inline-block p-sm-1 btn btn-outline-indigo animate__animated animate__fadeInDown animate__delay-5s" href="#"><span class="text-indigo-300"></span>Resume</a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <div class="social maison-mono position-fixed bottom-0 animate__animated animate__fadeInUp animate__delay-4s" style="left: 5%;">
+    <div class="social maison-mono position-fixed bottom-0 animate__animated animate__fadeInUp animate__delay-5s" style="left: 2.5%;">
         <ul class="list-unstyled" style="font-size: 40px;">
             <li><a href="#"><i class="lab la-github"></i></a></li>
             <li><a href="#"><i class="lab la-linkedin"></i></a></li>
@@ -51,7 +51,7 @@
         </ul>
     </div>
 
-    <div class="me maison-mono position-fixed bottom-0 animate__animated animate__fadeInUp animate__delay-4s" style="left: 95%;">
+    <div class="me maison-mono position-fixed bottom-0 animate__animated animate__fadeInUp animate__delay-5s" style="left: 95%;">
         <ul class="list-unstyled" style="webkit-writing-mode: vertical-rl; writing-mode: vertical-rl; margin-bottom: 40px">
             <li><a href="mailto:chakkarin.lks@gmail.com">chakkarin.lks@gmail.com</a></li>
         </ul>
@@ -59,101 +59,66 @@
 
     <section id="hero" class="container-fluid">
         <div class="container">
-            <div class="text-sm-center text-md-start maison-mono vh-100 d-flex align-items-center animate__animated animate__delay-4s animate__fadeInUp">
-                <div class="col-md-1 col-sm-auto">
-                </div>
+            <div class="text-sm-center text-md-start maison-mono min-vh-100 d-flex flex-wrap align-items-center justify-content-center animate__animated animate__delay-5s animate__fadeInUp">
                 <div class="col-sm-12 col-md-5">
                     <p>Hello, my name is</p>
-                    <h1 class="sohne-fett" style="color: white; font-size: 4em">Cenix.</h1>
+                    <h1 class="sohne-fett" style="color: white; font-size: 4em">Rin.</h1>
                     <h1 class="sohne-fett">I am a <span id="typewriter"></span></h1>
                     <p>Currently pursuing Computer Science Infrastructure at <a class="link" href="https://www.tudublin.ie/" target="_blank">Technological University Dublin</a>.</p>
                     <br>
-                    <a href="#portfolio" class="btn btn-outline-green p-3">Check out my Portfolio</a>
+                    <a href="#portfolio" class="btn btn-outline-indigo p-3">Check out my Portfolio</a>
                 </div>
-                <div class="col-md-6 hero col-sm-auto">
-                    <div id="commit">
-                        <h1>Recent commits</h1>
-                        <ul id="commitJS">
-                        </ul>
-                        <script defer>
-                            async function getEvents(username) {
-                            const events = []
-                            let page = 1
+                <div class="col-sm-12 col-md-5 hero">
+<!--                    <div id="commit">-->
+<!--                        <h1>Recent commits</h1>-->
+<!--                        Rate Limits of API maxed out lol -->
+<!--                        <script defer>-->
+<!--                            async function getEvents(username) {-->
+<!--                            const events = []-->
+<!--                            let page = 1-->
 
-                            do {
-                                const url = `https://api.github.com/users/${username}/events?page=${page}`
-                                var body = await fetch(url).then(res => res.json())
-                                page++
-                                events.push(...body)
-                            } while(!body.length)
+<!--                            do {-->
+<!--                                const url = `https://api.github.com/users/${username}/events?page=${page}`-->
+<!--                                var body = await fetch(url).then(res => res.json())-->
+<!--                                page++-->
+<!--                                events.push(...body)-->
+<!--                            } while(!body.length)-->
 
-                            return events
-                        }
+<!--                            return events-->
+<!--                        }-->
 
-                        async function getCommits(link) {
-                                const commits = []
-                            do {
-                                const url = link
-                                var body1 = await fetch(url).then(res => res.json())
-                                commits.push(body1)
-                            } while (!body1.length)
-                            return commits
-                        }
-
-                        let resEvents = [];
-                        let resCommits = [];
-
-                        (async () => {
-                            var body = await getEvents('D21125387')
-                            resEvents.push(...body);
-                            console.log(resEvents);
-                            console.log(resEvents[0]['repo']['url']+"/commits")
-                            for(let i = 0; i < 5; i++){
-
-                                // if(events[i]['type'] === 'PushEvent' || events[i]['type'] === 'CreateEvent'){
-                                //     console.log(events[i]);
-                                //     document.getElementById('commitJS').innerHTML +=
-                                //         "<li><a class='link' target='_blank' href='"+events[i]['repo']['url'].replace("https://api.github.com/repos", "https://github.com")+"'>"+events[i]['repo']['name']+"</a></li>";
-                                // }
-                            }
-
-                            // console.log('Overall Events', events.length)
-                            // console.log('PullRequests', events.filter(event => event.type === 'PullRequestEvent').length)
-                            // console.log('Forks', events.filter(event => event.type === 'ForkEvent').length)
-                            // console.log('Issues', events.filter(event => event.type === 'IssuesEvent').length)
-                            // console.log('Reviews', events.filter(event => event.type === 'PullRequestReviewEvent').length)
-                        })();
-
-                        (async () => {
-                            console.log(resEvents)
-                            resCommits = await getCommits(resEvents[0]['repo']['url'].toString())
-                            console.log(resCommits);
-
-                            // console.log('Overall Events', events.length)
-                            // console.log('PullRequests', events.filter(event => event.type === 'PullRequestEvent').length)
-                            // console.log('Forks', events.filter(event => event.type === 'ForkEvent').length)
-                            // console.log('Issues', events.filter(event => event.type === 'IssuesEvent').length)
-                            // console.log('Reviews', events.filter(event => event.type === 'PullRequestReviewEvent').length)
-                        })();
-                        </script>
-                    </div>
+<!--                        (async () => {-->
+<!--                            const events = await getEvents('D21125387')-->
+<!--                            console.log(events);-->
+<!--                            for(let i = 0; i < 5; i++){-->
+<!--                                if(events[i]['type'] === 'PushEvent' || events[i]['type'] === 'CreateEvent'){-->
+<!--                                    //console.log(events[i]);-->
+<!--                                    document.getElementById('commit').innerHTML += "<p>"+events[i]['repo']['name']+"</p>";-->
+<!--                                    fetch(events[i]['repo']['url']).then(res => res.json()).then(data => {-->
+<!--                                        document.getElementById('commit').innerHTML += "<p>"+data+"</p>";-->
+<!--                                        console.log(data);-->
+<!--                                    })-->
+<!--                                }-->
+<!--                            }-->
+<!--                        })()</script>-->
+<!--                    </div>-->
                 </div>
             </div>
         </div>
     </section>
 
     <section id="about">
-        <div class="container min-vh-100">
+        <div class="container">
             <div class="text-sm-center text-md-start maison-mono">
-                <div class="d-flex flex-column flex-md-row align-items-center">
-                    <div class="d-block col-sm-12 col-md-4">
+                <div class="d-flex flex-column flex-md-row align-items-center justify-content-center min-vh-100">
+                    <div class="d-block col-sm-12 col-md-3">
                         <div class="p-5 image">
                             <img src="assets/img/me.JPG" class="img-fluid rounded-3 shadow" alt="">
                         </div>
                     </div>
-                    <div class="d-block col-sm-12 col-md-8">
+                    <div class="d-block col-sm-12 col-md-7">
 
-                        <h1 class="text-red-300" style="opacity: 0.25;">01.</h1><h1 class="text-red-300">About</h1>
+                        <h2 class="text-red-300">01.<span class="sohne-fett">About</span></h2>
                         <p>My name is Chakkarin Laksanakesim. I go by Cenix or Rin for short.
                             I am from Ireland and have been around the coding scene since 2018.
                             I am currently studying a Computer Science Infrastructure Course at TUD.</p>
@@ -178,7 +143,7 @@
                         </div>
                         <div class="d-flex justify-content-center">
                             <div class="col-4">
-                                <a href="#" class="btn btn-outline-green p-3">Download Resume</a>
+                                <a href="#" class="btn btn-outline-indigo p-3">Download Resume</a>
                             </div>
                         </div>
                     </div>
@@ -188,23 +153,20 @@
     </section>
 
     <section id="experience">
-        <div class="container min-vh-100">
+        <div class="container">
             <div class="text-sm-center text-md-start maison-mono">
-                <div class="experience d-flex flex-column-reverse flex-md-row justify-content-center align-items-center">
-                    <div class="col-md-1 col-sm-auto">
-
-                    </div>
-                    <div class="d-block col-sm-12 col-md-6 sohne-light">
-                        <div class="d-flex align-items-start ms-auo me-auto">
-                            <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                <div class="experience d-flex flex-column-reverse flex-md-row min-vh-100 justify-content-center align-items-center">
+                    <div class="col-sm-12 col-md-6 sohne-light">
+                        <div class="d-flex align-items-start justify-content-center">
+                            <div class="nav flex-column align-self-stretch nav-pills" style="width: 30%" id="v-pills-tab" role="tablist" aria-orientation="vertical">
                                 <button class="nav-link active" id="v-pills-1-tab" data-bs-toggle="pill" data-bs-target="#v-pills-1" type="button" role="tab" aria-controls="v-pills-1" aria-selected="true">Irish Mortgage Broker</button>
                                 <button class="nav-link" id="v-pills-2-tab" data-bs-toggle="pill" data-bs-target="#v-pills-2" type="button" role="tab" aria-controls="v-pills-2" aria-selected="false">MC-Market</button>
                                 <button class="nav-link" id="v-pills-3-tab" data-bs-toggle="pill" data-bs-target="#v-pills-3" type="button" role="tab" aria-controls="v-pills-3" aria-selected="false">Experience #3</button>
                                 <button class="nav-link" id="v-pills-4-tab" data-bs-toggle="pill" data-bs-target="#v-pills-4" type="button" role="tab" aria-controls="v-pills-4" aria-selected="false">Experience #4</button>
                             </div>
-                            <div class="tab-content" id="v-pills-tabContent">
+                            <div class="tab-content" id="v-pills-tabContent" style="width: 70%;">
                                 <div class="tab-pane fade show active p-2" id="v-pills-1" role="tabpanel" aria-labelledby="v-pills-1-tab">
-                                    <p class="fw-bold">Software Tester <span class="text-orange-300">@</span> <a class="link" href="#">IMB</a></p>
+                                    <p class="fw-bold">Software Tester <span class="text-orange-300">@</span> <a class="link" href="#">Irish Mortgage Broker</a></p>
                                     <p>Feb 2019 - Mar 2019</p>
                                     <ul>
                                         <li>Quality Assurance Testing</li>
@@ -222,34 +184,19 @@
                                     </ul>
                                 </div>
                                 <div class="tab-pane fade p-2" id="v-pills-3" role="tabpanel" aria-labelledby="v-pills-3-tab">
-                                    <p class="fw-bold">Freelance - Art & Graphic Design <span class="text-orange-300">@</span> <a class="link" href="#">MC-Market</a></p>
-                                    <p>Jan 2017 - Apr 2017</p>
-                                    <ul>
-                                        <li>Digital Arts</li>
-                                        <li>3D Architecture (Schematics[Minecraft])</li>
-                                        <li>Gameplay & Map Design (Schematics[Minecraft])</li>
-                                    </ul>
+                                    ...
                                 </div>
                                 <div class="tab-pane fade p-2" id="v-pills-4" role="tabpanel" aria-labelledby="v-pills-4-tab">
-                                    <p class="fw-bold">Freelance - Art & Graphic Design <span class="text-orange-300">@</span> <a class="link" href="#">MC-Market</a></p>
-                                    <p>Jan 2017 - Apr 2017</p>
-                                    <ul>
-                                        <li>Digital Arts</li>
-                                        <li>3D Architecture (Schematics[Minecraft])</li>
-                                        <li>Gameplay & Map Design (Schematics[Minecraft])</li>
-                                    </ul>
+                                    ...
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="d-block col-sm-12 col-md-2">
+                    <div class="col-sm-12 col-md-4">
                         <div class="">
-                            <h1 class="text-orange-300" style="opacity: 0.25;">02.</h1><h1 class="text-orange-300">Experience</h1>
+                            <h2 class="text-orange-300">02.<span class="sohne-fett">Experience</span></h2>
                             <p>Here are my past work experiences</p>
                         </div>
-                    </div>
-                    <div class="col-md-1 col-sm-auto">
-
                     </div>
                 </div>
             </div>
@@ -257,11 +204,11 @@
     </section>
 
     <section id="portfolio">
-        <div class="container min-vh-100">
+        <div class="container">
             <div class="text-sm-center text-md-start maison-mono">
-                <div class="d-flex flex-column flex-md-row align-items-center">
+                <div class="d-flex min-vh-100 flex-column flex-md-row align-items-center">
                     <div class="d-block col-sm-12 col-md-12 text-center">
-                        <h1 class="text-yellow-300" style="opacity: 0.25;">03.</h1><h1 class="text-yellow-300">Portfolio</h1>
+                        <h2 class="text-yellow-300">03.<span class="sohne-fett">Portfolio</span></h2>
                     </div>
                 </div>
             </div>
@@ -269,12 +216,19 @@
     </section>
 
     <section id="contact">
-        <div class="container min-vh-100">
+        <div class="container">
             <div class="text-sm-center text-md-start maison-mono">
-                <div class="d-flex flex-column flex-md-row align-items-center">
+                <div class="d-flex min-vh-100 flex-column flex-md-row align-items-center">
                     <div class="d-block col-sm-12 col-md-12 text-center">
-                        <h1 class="text-emerald-300" style="opacity: 0.25;">04.</h1><h1 class="text-emerald-300">Contact</h1>
+                        <h2 class="text-emerald-300">04.<span class="sohne-fett">Contact</span></h2>
+                        <p>Shoot your shot!</p>
+                        <a href="mailto:chakkarin.lks@gmail.com" class="btn btn-outline-indigo p-3">Say Hello</a>
+                        <div class="flex-basis-w"></div>
                     </div>
+                </div>
+                <div class="col position-relative text-center" style="width: 100%;">
+                    <small>Made with &hearts; by Rin</small><br>
+                    <br>
                 </div>
             </div>
         </div>

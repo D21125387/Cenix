@@ -27,6 +27,7 @@
 html {
     scroll-behavior: smooth;
 }
+
 :root {
     --animate-delay: 0.25s !important;
     --color-indigo: rgb(165 180 252);
@@ -35,18 +36,44 @@ html {
     --color-orange: rgb(253 186 116);
 }
 
+body {
+    background: #1a1e21;
+}
+
+nav {
+    transition: all ease 0.3s;
+    border-bottom: none;
+    backdrop-filter: blur(10px);
+}
+
+.scrolled {
+    /*background: rgba(39, 39, 42, 0.95) !important;*/
+    padding-top: 1% !important;
+    /*border-bottom: var(--color-indigo) 1px solid;*/
+}
+
+.flex-basis-w {
+    flex-basis: 100%;
+    width: 0;
+}
+
+.flex-basis-h {
+    flex-basis: 100%;
+    height: 0;
+}
+
 .title {
     background: linear-gradient(to top, #00467f, #a5cc82);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
-.btn-outline-green {
+.btn-outline-indigo {
     color: var(--color-indigo);
     border-color: var(--color-indigo);
 }
 
-.btn-outline-green:hover {
+.btn-outline-indigo:hover {
     color: white;
     background: var(--color-indigo);
 }
