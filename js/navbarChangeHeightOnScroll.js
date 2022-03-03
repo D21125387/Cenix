@@ -1,13 +1,13 @@
-var navbar = document.querySelector('nav')
+const navbar = document.querySelector('nav');
 
 window.onscroll = function() {
 
     // pageYOffset or scrollY
     if (window.scrollY > 1) {
-        navbar.classList.add('scrolled')
-        navbar.classList.remove('bg-dark')
+        navbar.classList.add('scrolled');
+        navbar.classList.add('glass-no-round');
     } else {
-        navbar.classList.add('bg-dark')
-        navbar.classList.remove('scrolled')
+        navbar.classList.remove('scrolled');
+        navbar.classList.remove('glass-no-round')
     }
 }
