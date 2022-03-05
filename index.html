@@ -69,39 +69,38 @@
                     <a href="#portfolio" class="btn btn-outline-indigo p-3">Check out my Portfolio</a>
                 </div>
                 <div class="col-sm-12 col-md-5 hero">
-<!--                    <div id="commit">-->
-<!--                        <h1>Recent commits</h1>-->
-<!--                        Rate Limits of API maxed out lol -->
-<!--                        <script defer>-->
-<!--                            async function getEvents(username) {-->
-<!--                            const events = []-->
-<!--                            let page = 1-->
+                    <div id="commit">
+                        <h1>Recent commits</h1>
+                        <script defer>
+                            async function getEvents(username) {
+                            const events = []
+                            let page = 1
 
-<!--                            do {-->
-<!--                                const url = `https://api.github.com/users/${username}/events?page=${page}`-->
-<!--                                var body = await fetch(url).then(res => res.json())-->
-<!--                                page++-->
-<!--                                events.push(...body)-->
-<!--                            } while(!body.length)-->
+                            do {
+                                const url = `https://api.github.com/users/${username}/events?page=${page}`
+                                var body = await fetch(url).then(res => res.json())
+                                page++
+                                events.push(...body)
+                            } while(!body.length)
 
-<!--                            return events-->
-<!--                        }-->
+                            return events
+                        }
 
-<!--                        (async () => {-->
-<!--                            const events = await getEvents('D21125387')-->
-<!--                            console.log(events);-->
-<!--                            for(let i = 0; i < 5; i++){-->
-<!--                                if(events[i]['type'] === 'PushEvent' || events[i]['type'] === 'CreateEvent'){-->
-<!--                                    //console.log(events[i]);-->
-<!--                                    document.getElementById('commit').innerHTML += "<p>"+events[i]['repo']['name']+"</p>";-->
-<!--                                    fetch(events[i]['repo']['url']).then(res => res.json()).then(data => {-->
-<!--                                        document.getElementById('commit').innerHTML += "<p>"+data+"</p>";-->
-<!--                                        console.log(data);-->
-<!--                                    })-->
-<!--                                }-->
-<!--                            }-->
-<!--                        })()</script>-->
-<!--                    </div>-->
+                        (async () => {
+                            const events = await getEvents('D21125387')
+                            console.log(events);
+                            for(let i = 0; i < 5; i++){
+                                if(events[i]['type'] === 'PushEvent' || events[i]['type'] === 'CreateEvent'){
+                                    //console.log(events[i]);
+                                    document.getElementById('commit').innerHTML += "<p>"+events[i]['repo']['name']+"</p>";
+                                    fetch(events[i]['repo']['url']).then(res => res.json()).then(data => {
+                                        document.getElementById('commit').innerHTML += "<p>"+data+"</p>";
+                                        console.log(data);
+                                    })
+                                }
+                            }
+                        })()</script>
+                    </div>
                 </div>
             </div>
         </div>
@@ -218,7 +217,7 @@
                                     <img src="assets/img/dark01.png" alt="" class="img-fluid">
                                 </div>
                             </div>
-                            <div class="col-md-4 col-sm-12 pt-3 pb-3 pe-3 ps-3 glass text-right">
+                            <div class="col-md-4 col-sm-12 pt-3 pb-3 pe-3 ps-3 glass text-right shadow-lg">
                                 <p><small class="text-indigo-300">Featured Project</small></p>
                                 <h3><strong>Hytale.Cafe</strong></h3>
                                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias harum magni modi officia tenetur vel veniam voluptas? Amet, facilis, nostrum. Amet assumenda cumque deleniti deserunt ea facilis ipsum iusto nemo.</p>
@@ -235,7 +234,7 @@
                                     <img src="assets/img/dark01.png" alt="" class="img-fluid">
                                 </div>
                             </div>
-                            <div class="col-md-4 col-sm-12 pt-3 pb-3 pe-3 ps-3 glass text-left">
+                            <div class="col-md-4 col-sm-12 pt-3 pb-3 pe-3 ps-3 glass text-left shadow-lg">
                                 <p><small class="text-indigo-300">Featured Project</small></p>
                                 <h3><strong>Project</strong></h3>
                                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias harum magni modi officia tenetur vel veniam voluptas? Amet, facilis, nostrum. Amet assumenda cumque deleniti deserunt ea facilis ipsum iusto nemo.</p>
@@ -252,7 +251,7 @@
                                     <img src="assets/img/dark01.png" alt="" class="img-fluid">
                                 </div>
                             </div>
-                            <div class="col-md-4 col-sm-12 pt-3 pb-3 pe-3 ps-3 glass text-right">
+                            <div class="col-md-4 col-sm-12 pt-3 pb-3 pe-3 ps-3 glass text-right shadow-lg">
                                 <p><small class="text-indigo-300">Featured Project</small></p>
                                 <h3><strong>Project</strong></h3>
                                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias harum magni modi officia tenetur vel veniam voluptas? Amet, facilis, nostrum. Amet assumenda cumque deleniti deserunt ea facilis ipsum iusto nemo.</p>
