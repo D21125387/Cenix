@@ -35,7 +35,7 @@
                         <a class="nav-link me-1 animate__animated animate__fadeInDown animate__delay-4s" href="#contact"><span class="text-emerald-300">04.</span>Contact</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link mt-1 ms-1 d-inline-block p-2 p-md-1 btn btn-outline-indigo animate__animated animate__fadeInDown animate__delay-5s" href="#"><span class="text-indigo-300"></span>Resume</a>
+                        <a class="nav-link mt-1 ms-1 d-inline-block p-2 p-md-1 btn btn-outline-indigo animate__animated animate__fadeInDown animate__delay-5s" href="#about"><span class="text-indigo-300"></span>Resume</a>
                     </li>
                 </ul>
             </div>
@@ -44,10 +44,10 @@
 
     <div class="social maison-mono position-fixed bottom-0 animate__animated animate__fadeInUp animate__delay-5s" style="left: 2.5%;">
         <ul class="list-unstyled" style="font-size: 40px;">
-            <li><a href="#"><i class="lab la-github"></i></a></li>
-            <li><a href="#"><i class="lab la-linkedin"></i></a></li>
-            <li><a href="#"><i class="lab la-instagram"></i></a></li>
-            <li><a href="#"><i class="lab la-twitter"></i></a></li>
+            <li><a href="https://github.com/D21125387"><i class="lab la-github"></i></a></li>
+            <li><a href="https://www.linkedin.com/in/chakkarin-laksanakesim-a76ba6161/"><i class="lab la-linkedin"></i></a></li>
+            <li><a href="https://instagram.com/ariysx"><i class="lab la-instagram"></i></a></li>
+<!--            <li><a href="#"><i class="lab la-twitter"></i></a></li>-->
         </ul>
     </div>
 
@@ -94,8 +94,10 @@
                                     //console.log(events[i]);
                                     document.getElementById('commit').innerHTML += "<p>"+events[i]['repo']['name']+"</p>";
                                     fetch(events[i]['repo']['url']).then(res => res.json()).then(data => {
-                                        document.getElementById('commit').innerHTML += "<p>"+data+"</p>";
-                                        console.log(data);
+                                        // console.log(data);
+                                        fetch(data['commits_url'].replace("{/sha}", '')).then(res => res.json()).then(data1 => {
+                                            console.log(data1[0]['commit']['message']);
+                                        })
                                     })
                                 }
                             }
@@ -142,7 +144,7 @@
                         </div>
                         <div class="d-flex justify-content-center">
                             <div class="col-4">
-                                <a href="#" class="btn btn-outline-indigo p-3">Download Resume</a>
+                                <a href="files/cv.docx" class="btn btn-outline-indigo p-3">Download Resume</a>
                             </div>
                         </div>
                     </div>
@@ -160,12 +162,12 @@
                             <div class="nav flex-column align-self-stretch nav-pills" style="width: 30%" id="v-pills-tab" role="tablist" aria-orientation="vertical">
                                 <button class="nav-link active" id="v-pills-1-tab" data-bs-toggle="pill" data-bs-target="#v-pills-1" type="button" role="tab" aria-controls="v-pills-1" aria-selected="true">Irish Mortgage Broker</button>
                                 <button class="nav-link" id="v-pills-2-tab" data-bs-toggle="pill" data-bs-target="#v-pills-2" type="button" role="tab" aria-controls="v-pills-2" aria-selected="false">MC-Market</button>
-                                <button class="nav-link" id="v-pills-3-tab" data-bs-toggle="pill" data-bs-target="#v-pills-3" type="button" role="tab" aria-controls="v-pills-3" aria-selected="false">Experience #3</button>
-                                <button class="nav-link" id="v-pills-4-tab" data-bs-toggle="pill" data-bs-target="#v-pills-4" type="button" role="tab" aria-controls="v-pills-4" aria-selected="false">Experience #4</button>
+<!--                                <button class="nav-link" id="v-pills-3-tab" data-bs-toggle="pill" data-bs-target="#v-pills-3" type="button" role="tab" aria-controls="v-pills-3" aria-selected="false">Experience #3</button>-->
+<!--                                <button class="nav-link" id="v-pills-4-tab" data-bs-toggle="pill" data-bs-target="#v-pills-4" type="button" role="tab" aria-controls="v-pills-4" aria-selected="false">Experience #4</button>-->
                             </div>
                             <div class="tab-content" id="v-pills-tabContent" style="min-width: 70%;">
                                 <div class="tab-pane fade show active p-2" id="v-pills-1" role="tabpanel" aria-labelledby="v-pills-1-tab">
-                                    <p class="fw-bold">Software Tester <span class="text-orange-300">@</span> <a class="link" href="#">Irish Mortgage Broker</a></p>
+                                    <p class="fw-bold">Software Tester <span class="text-orange-300">@</span> <a class="link" href="https://www.mortgagebrokers.ie/" target="_blank">Irish Mortgage Broker</a></p>
                                     <p>Feb 2019 - Mar 2019</p>
                                     <ul>
                                         <li>Quality Assurance Testing</li>
@@ -174,7 +176,7 @@
                                     </ul>
                                 </div>
                                 <div class="tab-pane fade p-2" id="v-pills-2" role="tabpanel" aria-labelledby="v-pills-2-tab">
-                                    <p class="fw-bold">Freelance <span class="text-orange-300">@</span> <a class="link" href="#">MC-Market</a></p>
+                                    <p class="fw-bold">Freelance <span class="text-orange-300">@</span> <a class="link" href="https://mc-market.org" target="_blank">MC-Market</a></p>
                                     <p>Jan 2017 - Apr 2017</p>
                                     <ul>
                                         <li>Digital Arts</li>
@@ -182,12 +184,12 @@
                                         <li>Gameplay & Map Design (Schematics[Minecraft])</li>
                                     </ul>
                                 </div>
-                                <div class="tab-pane fade p-2" id="v-pills-3" role="tabpanel" aria-labelledby="v-pills-3-tab">
-                                    ...
-                                </div>
-                                <div class="tab-pane fade p-2" id="v-pills-4" role="tabpanel" aria-labelledby="v-pills-4-tab">
-                                    ...
-                                </div>
+<!--                                <div class="tab-pane fade p-2" id="v-pills-3" role="tabpanel" aria-labelledby="v-pills-3-tab">-->
+<!--                                    ...-->
+<!--                                </div>-->
+<!--                                <div class="tab-pane fade p-2" id="v-pills-4" role="tabpanel" aria-labelledby="v-pills-4-tab">-->
+<!--                                    ...-->
+<!--                                </div>-->
                             </div>
                         </div>
                     </div>
@@ -211,60 +213,63 @@
                         <p class="maison-mono">Here are my previous projects</p>
                     </div>
                     <div class="col-12">
-                        <div class="d-flex flex-column flex-md-row justify-content-center align-items-center">
+                        <div class="d-flex flex-column flex-md-row justify-content-center align-items-center mt-5 mb-5">
                             <div class="col-md-4 col-sm-12">
                                 <div class="image">
-                                    <img src="assets/img/dark01.png" alt="" class="img-fluid">
+                                    <img src="assets/img/portfolio1.png" alt="" class="img-fluid">
                                 </div>
                             </div>
                             <div class="col-md-4 col-sm-12 pt-3 pb-3 pe-3 ps-3 glass text-right shadow-lg">
                                 <p><small class="text-indigo-300">Featured Project</small></p>
-                                <h3><strong>Hytale.Cafe</strong></h3>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias harum magni modi officia tenetur vel veniam voluptas? Amet, facilis, nostrum. Amet assumenda cumque deleniti deserunt ea facilis ipsum iusto nemo.</p>
-                                <p><small>HTML CSS Java PHP Xenforo </small></p>
+                                <h3><strong>Machine Learning</strong></h3>
+                                <p>Machine Learning Application built using Java and the Naive Bayes algorithm. This program was built to predict ascertain dataset fed into the program.</p>
+                                <p><small>This project is part of my academic assignment</small></p>
+                                <p><small>Java</small></p>
                                 <ul class="p-0">
-                                    <li class="d-inline-block"><h1 class="social"><a href=""><i class="lab la-github"></i></a></h1></li>
-                                    <li class="d-inline-block"><h1 class="social"><a href=""><i class="las la-external-link-alt"></i></a></h1></li>
+                                    <li class="d-inline-block"><h1 class="social"><a href="https://github.com/D21125387/JavaSem2" target="_blank"><i class="lab la-github"></i></a></h1></li>
+                                    <li class="d-inline-block"><h1 class="social"><a href="https://github.com/D21125387/JavaMachineLearning/releases/tag/javamachinelearning" target="_blank"><i class="las la-external-link-alt"></i></a></h1></li>
                                 </ul>
                             </div>
                         </div>
-                        <div class="d-flex flex-column flex-md-row-reverse justify-content-center align-items-center">
+                        <div class="d-flex flex-column flex-md-row-reverse justify-content-center align-items-center mt-5 mb-5">
                             <div class="col-md-4 col-sm-12">
                                 <div class="image">
-                                    <img src="assets/img/dark01.png" alt="" class="img-fluid">
+                                    <img src="assets/img/portfolio2.png" alt="" class="img-fluid">
                                 </div>
                             </div>
                             <div class="col-md-4 col-sm-12 pt-3 pb-3 pe-3 ps-3 glass text-left shadow-lg">
                                 <p><small class="text-indigo-300">Featured Project</small></p>
-                                <h3><strong>Project</strong></h3>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias harum magni modi officia tenetur vel veniam voluptas? Amet, facilis, nostrum. Amet assumenda cumque deleniti deserunt ea facilis ipsum iusto nemo.</p>
-                                <p><small>HTML CSS Java PHP Xenforo </small></p>
+                                <h3><strong>Product Management Dashboard</strong></h3>
+                                <p>The dashboard is built to handle basic SQL data management in the theme of a grocery store.</p>
+                                <p><small>HTML CSS JavaScript PHP MySQL BootStrap </small></p>
                                 <ul class="p-0">
-                                    <li class="d-inline-block"><h1 class="social"><a href=""><i class="lab la-github"></i></a></h1></li>
-                                    <li class="d-inline-block"><h1 class="social"><a href=""><i class="las la-external-link-alt"></i></a></h1></li>
+                                    <li class="d-inline-block"><h1 class="social"><a href="https://github.com/D21125387/WebDevAssignment2022" target="_blank"><i class="lab la-github"></i></a></h1></li>
+                                    <li class="d-inline-block"><h1 class="social"><a href="https://ceni.xyz/demo/groceri/index.php" target="_blank"><i class="las la-external-link-alt"></i></a></h1></li>
                                 </ul>
                             </div>
                         </div>
-                        <div class="d-flex flex-column flex-md-row justify-content-center align-items-center">
+                        <div class="d-flex flex-column flex-md-row justify-content-center align-items-center mt-5 mb-5">
                             <div class="col-md-4 col-sm-12">
                                 <div class="image">
-                                    <img src="assets/img/dark01.png" alt="" class="img-fluid">
+                                    <img src="assets/img/portfolio3.png" alt="" class="img-fluid p-2" style="border-radius: 15px !important;">
                                 </div>
                             </div>
                             <div class="col-md-4 col-sm-12 pt-3 pb-3 pe-3 ps-3 glass text-right shadow-lg">
                                 <p><small class="text-indigo-300">Featured Project</small></p>
-                                <h3><strong>Project</strong></h3>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias harum magni modi officia tenetur vel veniam voluptas? Amet, facilis, nostrum. Amet assumenda cumque deleniti deserunt ea facilis ipsum iusto nemo.</p>
-                                <p><small>HTML CSS Java PHP Xenforo </small></p>
+                                <h3><strong>UX Case Study: Leap Top-up Application</strong></h3>
+                                <p>User Experience case study of the current Leap Top-up application. Includes Redesign report</p>
+                                <p><small></small></p>
                                 <ul class="p-0">
-                                    <li class="d-inline-block"><h1 class="social"><a href=""><i class="lab la-github"></i></a></h1></li>
-                                    <li class="d-inline-block"><h1 class="social"><a href=""><i class="las la-external-link-alt"></i></a></h1></li>
+                                    <li class="d-inline-block"><h1 class="social"><a href="https://docs.google.com/presentation/d/14LIu27Z7DdLlqZFYv14y461k_UOoFV1ayW1XVdGc7sA/edit?usp=sharing" target="_blank"><i class="las la-external-link-alt"></i></a></h1></li>
+                                    <li class="d-inline-block"><h1 class="social"><a href="files/Leap%20Top-up%20Redesign.docx" target="_blank"><i class="las la-file-word"></i></a></h1></li>
                                 </ul>
                             </div>
                         </div>
                         <div class="d-flex flex-column flex-md-row justify-content-center align-items-center">
-                            <div class="col-12 text-center">
-                                <a href="#" class="d-inline-block btn btn-outline-indigo p-3">Load more</a>
+                            <div class="col-12 text-center social maison-mono">
+                                <p>Check out more projects on my Github</p>
+                               <h1><a href="https://github.com/D21125387"><i class="lab la-github"></i></a></h1>
+<!--                                <a href="#" class="d-inline-block btn btn-outline-indigo p-3">Load more</a>-->
                             </div>
                         </div>
                     </div>
