@@ -44,7 +44,7 @@
 
     <div class="social maison-mono position-fixed bottom-0 animate__animated animate__fadeInUp animate__delay-5s" style="left: 2.5%;">
         <ul class="list-unstyled" style="font-size: 40px;">
-            <li><a href="https://github.com/D21125387"><i class="lab la-github"></i></a></li>
+            <li><a href="https://github.com/ariysx"><i class="lab la-github"></i></a></li>
             <li><a href="https://www.linkedin.com/in/chakkarin-laksanakesim-a76ba6161/"><i class="lab la-linkedin"></i></a></li>
             <li><a href="https://instagram.com/ariysx"><i class="lab la-instagram"></i></a></li>
 <!--            <li><a href="#"><i class="lab la-twitter"></i></a></li>-->
@@ -87,12 +87,13 @@
                         }
 
                         (async () => {
-                            const events = await getEvents('D21125387')
+                            const events = await getEvents('ariysx')
                             console.log(events);
                             for(let i = 0; i < 5; i++){
                                 if(events[i]['type'] === 'PushEvent' || events[i]['type'] === 'CreateEvent'){
                                     //console.log(events[i]);
-                                    document.getElementById('commit').innerHTML += "<p>"+events[i]['repo']['name']+"</p>";
+                                    let project = events[i]['repo']['name'].replace("D21125387/", "Repository/");
+                                    document.getElementById('commit').innerHTML += "<p><a class='link' href='https://github.com/ariysx/"+project.replace("Repository/", "")+"'>"+project+"</a></p>";
                                     fetch(events[i]['repo']['url']).then(res => res.json()).then(data => {
                                         // console.log(data);
                                         fetch(data['commits_url'].replace("{/sha}", '')).then(res => res.json()).then(data1 => {
@@ -144,7 +145,7 @@
                         </div>
                         <div class="d-flex justify-content-center">
                             <div class="col-4">
-                                <a href="files/cv.docx" class="btn btn-outline-indigo p-3">Download Resume</a>
+                                <a href="https://1drv.ms/w/s!AlFMwaR37tMqe_qNwxRKvTtmBgw?e=AdhCtI" class="btn btn-outline-indigo p-3" target="_blank">View Resume</a>
                             </div>
                         </div>
                     </div>
@@ -226,8 +227,8 @@
                                 <p><small>This project is part of my academic assignment</small></p>
                                 <p><small>Java</small></p>
                                 <ul class="p-0">
-                                    <li class="d-inline-block"><h1 class="social"><a href="https://github.com/D21125387/JavaSem2" target="_blank"><i class="lab la-github"></i></a></h1></li>
-                                    <li class="d-inline-block"><h1 class="social"><a href="https://github.com/D21125387/JavaMachineLearning/releases/tag/javamachinelearning" target="_blank"><i class="las la-external-link-alt"></i></a></h1></li>
+                                    <li class="d-inline-block"><h1 class="social"><a href="https://github.com/ariysx/JavaMachineLearning" target="_blank"><i class="lab la-github"></i></a></h1></li>
+                                    <li class="d-inline-block"><h1 class="social"><a href="https://github.com/ariysx/JavaMachineLearning/releases/tag/javamachinelearning" target="_blank"><i class="las la-external-link-alt"></i></a></h1></li>
                                 </ul>
                             </div>
                         </div>
@@ -243,7 +244,7 @@
                                 <p>The dashboard is built to handle basic SQL data management in the theme of a grocery store.</p>
                                 <p><small>HTML CSS JavaScript PHP MySQL BootStrap </small></p>
                                 <ul class="p-0">
-                                    <li class="d-inline-block"><h1 class="social"><a href="https://github.com/D21125387/WebDevAssignment2022" target="_blank"><i class="lab la-github"></i></a></h1></li>
+                                    <li class="d-inline-block"><h1 class="social"><a href="https://github.com/ariysx/WebDevAssignment2022" target="_blank"><i class="lab la-github"></i></a></h1></li>
                                     <li class="d-inline-block"><h1 class="social"><a href="https://ceni.xyz/demo/groceri/index.php" target="_blank"><i class="las la-external-link-alt"></i></a></h1></li>
                                 </ul>
                             </div>
@@ -268,7 +269,7 @@
                         <div class="d-flex flex-column flex-md-row justify-content-center align-items-center">
                             <div class="col-12 text-center social maison-mono">
                                 <p>Check out more projects on my Github</p>
-                               <h1><a href="https://github.com/D21125387"><i class="lab la-github"></i></a></h1>
+                               <h1><a href="https://github.com/ariysx"><i class="lab la-github"></i></a></h1>
 <!--                                <a href="#" class="d-inline-block btn btn-outline-indigo p-3">Load more</a>-->
                             </div>
                         </div>
@@ -284,7 +285,7 @@
                 <div class="d-flex min-vh-100 flex-column flex-md-row justify-content-center align-items-center">
                     <div class="d-block col-sm-12 col-md-12 text-center">
                         <h2 class="text-emerald-300">04.<span class="sohne-fett">Contact</span></h2>
-                        <p>Shoot your shot!</p>
+                        <p>Let's Connect</p>
                         <a href="mailto:chakkarin.lks@gmail.com" class="btn btn-outline-indigo p-3">Say Hello</a>
                         <div class="flex-basis-w"></div>
                     </div>
